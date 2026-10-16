@@ -79,8 +79,10 @@ export default function KatalogPage() {
   const [search, setSearch] = useState("");
   const [selectedMaterials, setSelectedMaterials] = useState<string[]>([]);
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
-  const [minPrice, setMinPrice] = useState(50000);
+  const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(5000000);
+  const [minPriceInput, setMinPriceInput] = useState("0");
+  const [maxPriceInput, setMaxPriceInput] = useState("5000000");
   const [sort, setSort] = useState("terbaru");
   const [page, setPage] = useState(1);
   const [gridView, setGridView] = useState(true);
@@ -224,7 +226,7 @@ export default function KatalogPage() {
     setSearch("");
     setSelectedMaterials([]);
     setSelectedSizes([]);
-    setMinPrice(50000);
+    setMinPrice(0);
     setMaxPrice(5000000);
     setSort("terbaru");
     setPage(1);
@@ -477,8 +479,8 @@ export default function KatalogPage() {
                   type="button"
                   onClick={() => selectCategory(category.value)}
                   className={`flex shrink-0 items-center justify-center gap-2 rounded-xl border px-4 py-3 text-xs font-bold transition-all sm:px-5 sm:text-sm ${active
-                      ? "border-amber-400 bg-amber-400 text-slate-950 shadow-lg shadow-amber-500/10"
-                      : "border-slate-700 bg-slate-900/70 text-slate-300 hover:border-amber-500/50 hover:text-amber-400"
+                    ? "border-amber-400 bg-amber-400 text-slate-950 shadow-lg shadow-amber-500/10"
+                    : "border-slate-700 bg-slate-900/70 text-slate-300 hover:border-amber-500/50 hover:text-amber-400"
                     }`}
                 >
                   <Icon size={18} />
@@ -568,8 +570,8 @@ export default function KatalogPage() {
                     onClick={() => setGridView(true)}
                     aria-label="Tampilan grid"
                     className={`hidden rounded-xl border p-3 sm:block ${gridView
-                        ? "border-amber-400 bg-amber-400/10 text-amber-400"
-                        : "border-slate-700 text-slate-400"
+                      ? "border-amber-400 bg-amber-400/10 text-amber-400"
+                      : "border-slate-700 text-slate-400"
                       }`}
                   >
                     <Grid2X2 size={18} />
@@ -580,8 +582,8 @@ export default function KatalogPage() {
                     onClick={() => setGridView(false)}
                     aria-label="Tampilan daftar"
                     className={`hidden rounded-xl border p-3 sm:block ${!gridView
-                        ? "border-amber-400 bg-amber-400/10 text-amber-400"
-                        : "border-slate-700 text-slate-400"
+                      ? "border-amber-400 bg-amber-400/10 text-amber-400"
+                      : "border-slate-700 text-slate-400"
                       }`}
                   >
                     <List size={18} />
@@ -611,8 +613,8 @@ export default function KatalogPage() {
                       >
                         <div
                           className={`relative overflow-hidden bg-slate-900 ${gridView
-                              ? "aspect-square w-full"
-                              : "h-36 w-32 shrink-0 sm:h-48 sm:w-48"
+                            ? "aspect-square w-full"
+                            : "h-36 w-32 shrink-0 sm:h-48 sm:w-48"
                             }`}
                         >
                           {image ? (
@@ -768,8 +770,8 @@ export default function KatalogPage() {
                             });
                           }}
                           className={`min-w-10 rounded-lg border px-3 py-2.5 text-sm font-bold transition-colors ${currentPage === number
-                              ? "border-amber-400 bg-amber-400 text-slate-950"
-                              : "border-slate-800 bg-slate-900 text-slate-300 hover:border-amber-400"
+                            ? "border-amber-400 bg-amber-400 text-slate-950"
+                            : "border-slate-800 bg-slate-900 text-slate-300 hover:border-amber-400"
                             }`}
                         >
                           {number}
